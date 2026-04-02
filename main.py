@@ -20,7 +20,7 @@ def show_menu() -> None:
     print("5. 🚪 Dasturni yakunlash")
 
 
-def is_valid_contact(contact: str) -> bool:
+def is_valid_contact(contact: list) -> bool:
     """
     Kontakt formati to‘g‘ri yoki noto‘g‘ri ekanligini aniqlaydi.
 
@@ -33,17 +33,22 @@ def is_valid_contact(contact: str) -> bool:
     pass
 
 
-def add_contact(contact_list: List[str]) -> None:
+def add_contact(contact_list: List[list]) -> None:
     """
     Yangi kontakt qo‘shadi.
 
     Args:
         contact_list (List[str]): Kontaktlar ro‘yxati.
     """
-    pass
+    name = input("Name: ")
+    phone = input("Phone: ")
+    email = input("Email: ")
+
+    new_contact = [name, phone, email]
+    contact_list.append(new_contact)
 
 
-def list_contacts(contact_list: List[str]) -> None:
+def list_contacts(contact_list: List[list]) -> None:
     """
     Kontaktlar ro‘yxatini konsolga chiqaradi.
 
@@ -53,7 +58,7 @@ def list_contacts(contact_list: List[str]) -> None:
     pass
 
 
-def search_contact(contact_list: List[str]) -> None:
+def search_contact(contact_list: List[list]) -> None:
     """
     Foydalanuvchi kiritgan ism bo‘yicha kontaktlarni qidiradi.
 
@@ -63,7 +68,7 @@ def search_contact(contact_list: List[str]) -> None:
     pass
 
 
-def filter_gmail_contacts(contact_list: List[str]) -> None:
+def filter_gmail_contacts(contact_list: List[list]) -> None:
     """
     Faqat @gmail.com domeniga ega kontaktlarni ko‘rsatadi.
 
@@ -78,7 +83,7 @@ def main() -> None:
     Dasturning asosiy ishga tushirish funksiyasi.
     Menyu orqali foydalanuvchi tanlovini boshqaradi.
     """
-    contacts: List[str] = []
+    contacts: List[list] = []
 
     while True:
         show_menu()

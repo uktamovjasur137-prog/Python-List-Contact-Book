@@ -46,7 +46,7 @@ def add_contact(contact_list: List[list]) -> None:
 
     new_contact = [name, phone, email]
     contact_list.append(new_contact)
-
+    print("Kontakt qoshildi !")
 
 def list_contacts(contact_list: List[list]) -> None:
     """
@@ -55,7 +55,12 @@ def list_contacts(contact_list: List[list]) -> None:
     Args:
         contact_list (List[str]): Kontaktlar ro‘yxati.
     """
-    pass
+    if contact_list != []:
+        print("Barcha kontaktlar:")
+        for contact in contact_list:
+            print(f"{contact[0]} - {contact[1]} - {contact[2]}")
+        else:
+            print("Kontaklar mavjud emas")
 
 
 def search_contact(contact_list: List[list]) -> None:
@@ -65,7 +70,10 @@ def search_contact(contact_list: List[list]) -> None:
     Args:
         contact_list (List[str]): Kontaktlar ro‘yxati.
     """
-    pass
+    search = input("Search: ")
+    for contact in contact_list:
+        if search.lower() in contact[0].lower():
+            print(f"{contact[0]} - {contact[1]} - {contact[2]}")
 
 
 def filter_gmail_contacts(contact_list: List[list]) -> None:
@@ -75,7 +83,10 @@ def filter_gmail_contacts(contact_list: List[list]) -> None:
     Args:
         contact_list (List[str]): Kontaktlar ro‘yxati.
     """
-    pass
+    for contact in contact_list:
+        if contact[2].endswith("@gmail.com"):
+            print(f"{contact[0]} - {contact[1]} - {contact[2]}")
+    
 
 
 def main() -> None:
